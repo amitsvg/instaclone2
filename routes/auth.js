@@ -9,14 +9,14 @@ const jwt = require('jsonwebtoken')
 const Jwt_secret  = process.env.Jwt_secret
 const requireLogin = require('../middlewares/requireLogin');
 
-router.get("/", function (_, res) {
-    res.sendFile(
-        path.join(__dirname, "../client/build/index.html"),
-        function (err) {
-            res.status(500).send(err);
-        }
-    );
-});
+// router.get("*", function (_, res) {
+//     res.sendFile(
+//         path.join(__dirname, "../client/build/index.html"),
+//         function (err) {
+//             res.status(500).send(err);
+//         }
+//     );
+// });
 
 router.post("/signup", (req, res) => {
     const { name, userName, email, password } = req.body;
