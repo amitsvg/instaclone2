@@ -1,0 +1,113 @@
+.card{
+    max-width: 500px;
+    height: max-content;
+    margin:25px auto;
+    border: 1px solid rgb(173, 173, 173);
+    border-radius: 5px;
+}
+
+/* card header  */
+
+.card-header{
+    box-sizing: border-box;
+    display: flex;
+    padding: 5px 0px 7px 10px;
+    /* border-bottom: 1px solid black; */
+
+}
+.card-pic{
+    border-radius: 50%;
+    overflow: hidden;
+    /* height: 57px;
+    width: 57px; */
+    height: 2.6rem;
+    width: 2.6rem;
+}
+.card-pic img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+.card-header > h5{
+    margin: 0px;
+    padding: 11px;
+}
+
+/* card image  */
+
+.card-image{
+    max-height: 576px;
+}
+
+.card-image img{
+    width: 100%;
+
+}
+
+/* card content  */
+.card-content{
+    text-align: left;
+    /* line-height: 5px; */
+    padding: 3px 10px 10px 10px;
+    
+    border-bottom: 1px solid rgb(173, 173, 173);
+
+}
+
+.card-content p{
+    margin: 0px 0px;
+}
+
+.add-comment{
+    display: flex;
+    align-items: center;
+}
+
+
+/* .material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 00,
+  'wght' 700,
+  'GRAD' 200,
+  'opsz' 48
+} */
+
+.material-symbols-outlined {
+    cursor: pointer;
+    animation: all 22s ease;
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 700,
+    'GRAD' 200,
+    'opsz' 48
+}
+.material-symbols-outlined:hover {
+    transform: scale(1.16);
+}
+
+  .liked{
+      color: red;
+      text-shadow: 1px 2px 12px red;
+      font-variation-settings:
+      'FILL' 1
+    
+}
+
+.add-comment input {
+    margin: 0;
+    outline: none;
+    border: none;
+    padding: 10px;
+    width: 100%;
+
+}
+
+.comment-btn{
+    border: none;
+    /* background-color: none; */
+    background: transparent;
+    cursor: pointer;
+    font-weight: bolder;
+    color: #b7e1fd;
+
+}

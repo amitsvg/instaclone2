@@ -1,0 +1,70 @@
+.signUp{
+    background-image: url("../img/instabg.jpg");
+    background-size: cover;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form{
+    background-color: #fff;
+    padding: 30px;
+    border: 1px solid rgb(129, 124, 124);
+    border-radius: 1px;
+}
+.form > div{
+    width: 80%;
+    margin: auto;
+    padding-bottom: 10px;
+}
+
+.signUpLogo{
+    /* width: 30%; */
+    width: 200px;
+    padding: 10px 0px;
+    object-fit: contain;
+}
+
+.signUpPara{
+    color: rgba(var(--f52,142,142,142),1);
+    font-size: 1.2rem;
+    font-weight: 600;
+    line-height: 20px;
+    margin: 0px 40px 20px 40px;
+}
+
+.form  input{
+    padding: 5px;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#submit-btn{
+    background-color: #1773ea;
+    border: none;
+    color: white;
+    font-size: 1.03rem;
+    font-weight: bold;
+    padding: 8px 10px;
+    width: 80%;
+    cursor: pointer;
+    margin-top: 0.9rem;
+    border-radius: 3px;
+}
+
+.form2{
+    background-color: rgba(255,255,255,0.4);
+    padding: 30px;
+    margin-top: 0.3rem;
+    border: 1px solid rgb(129, 124, 124);
+    border-radius: 1px;  
+}
+
+#lineline{
+    text-decoration: none;
+}
+#lineline:hover{
+    text-decoration: underline;
+}

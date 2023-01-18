@@ -1,0 +1,62 @@
+.signIn{
+    background-image: url("../img/instabg.jpg");
+    background-size: cover;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.signInLogo{
+    /* width: 30%; */
+    width: 200px;
+    padding: 10px 0px;
+    object-fit: contain;
+}
+
+.loginForm{
+    /* background-color: #fff; */
+    background-color: #eae6ff;
+    padding: 30px;
+    border: 1px solid rgb(129, 124, 124);
+    border-radius: 1px;
+}
+.loginForm > div {
+    margin: 10px 0px;
+}
+
+.loginForm input{
+    padding: 5px;
+    margin: 3px 6px;
+    outline: none;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.loginForm2{
+    background-color: rgba(255,255,255,0.6);
+    padding: 30px;
+    margin-top: 0.3rem;
+    border: 1px solid rgb(129, 124, 124);
+    border-radius: 1px;  
+}
+
+#login-btn{
+    background-color: #1773ea;
+    border: none;
+    color: white;
+    font-size: 1.03rem;
+    font-weight: bold;
+    padding: 8px 10px;
+    
+    cursor: pointer;
+    margin-top: 0.9rem;
+    border-radius: 3px;
+}
+
+#optionline{
+    text-decoration: none;
+}
+#optionline:hover{
+    text-decoration: underline;
+}

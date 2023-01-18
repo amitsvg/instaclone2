@@ -1,0 +1,117 @@
+/* .navbar img{
+    width: 10%;
+    object-fit: contain;
+} */
+.linkHome{
+    /* border: 3px solid red; */
+    height: fit-content;
+    width: fit-content;
+    
+}
+.nav-img {
+    /* display: inline; */
+    /* display: flex; */
+    align-items: center;
+}
+.nav-img img {
+    /* width: 100%; */
+    /* height: 100%; */
+    width: 50%;
+    object-fit: contain;
+    margin: auto;
+}
+
+.navbar {
+    /* stick to the top */
+    position: fixed;
+    top:0;
+    width: 100%;
+    background-color: rgb(243, 243, 243);
+    display: flex;
+    justify-content: space-around;
+    box-shadow: 1px 5px 5px #e0dcdc;
+
+}
+
+ul {
+    display: flex;
+    margin: 0.6rem auto;
+    align-items: center;
+}
+
+li {
+    list-style: none;
+    padding: 0.9rem;
+    /* font-size: 1.3rem; */
+}
+
+a{
+    text-decoration: none;
+}
+.nav-menu a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 1.6rem;
+}
+
+.primaryBtn{
+    cursor: pointer;
+    font-weight: bolder;
+    padding: 13px 25px;
+    font-size: 0.8rem;
+    border: none;
+    color: white;
+    background-color: #db183c;
+    border-radius: 17px;
+    margin-left: 20px;
+    transition: all 0.3s ease;
+}
+.primaryBtn:hover{
+    transform: translateY(-4px);
+    box-shadow: 0px 10px 20px -10px rgba(219, 24, 44, 0.6);
+}
+#spaceSpan{
+    padding-left: 3px;
+}
+
+@media only screen and (max-width: 1000px) {
+    .nav-img {
+        display: flex;
+    }
+
+
+}
+@media only screen and (max-width: 600px) {
+    .navbar{
+        padding: 0px 9px;
+    }
+    .nav-img{
+        margin-left: 6px;
+        display: flex;
+        /* align-items: center; */
+    }
+    .nav-img img{
+        width: 100%;
+    }
+    .nav-menu a {
+        font-size: 0.9rem;
+    }
+
+    li {
+        list-style: none;
+        padding: 0.58rem;
+        /* font-size: 1.3rem; */
+    }
+
+    .primaryBtn{
+        font-size: 0.7rem;
+        border-radius: 3px;
+        margin-left: 0px;
+        padding: 9px 4px;
+        /* border-radius: 9px; */
+    }
+    #spaceSpan{
+        padding-left: 3px;
+    }
+    
+}
