@@ -10,7 +10,7 @@ app.use(cors());
 // require('./models/model')
 // require('./models/post')
 // app.use(express.json())
-app.use(require("./routes/auth"))
+// app.use(require("./routes/auth"))
 // app.use(require("./routes/createPost"))
 // app.use(require("./routes/user"))
 
@@ -26,10 +26,15 @@ app.use(require("./routes/auth"))
 // }
 
 // connectDB().then(() => {
-app.use(express.static(path.join("client/build")));
-app.get("/", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
-});
+    app.use(express.static(path.join(__dirname, "./client/build")));
+    app.get("*", function (_, res) {
+      res.sendFile(
+        path.join(__dirname, "./client/build/index.html"),
+        function (err) {
+          res.status(500).send(err);
+        }
+      );
+    });
 
 app.listen(PORT, () => {
     console.log(`server si running on ${PORT}`);
