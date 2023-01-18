@@ -1,16 +1,22 @@
 const express = require('express')
+const path = require("path");
+
 const router = express.Router();
 const mongoose = require('mongoose')
 const USER = mongoose.model("USER")
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-const { Jwt_secret } = require("../keys");
 const Jwt_secret  = process.env.Jwt_secret
 const requireLogin = require('../middlewares/requireLogin');
 
-router.get('/', (req, res) => {
-    res.send("server is hi hi");
-})
+router.get("/", function (_, res) {
+    res.sendFile(
+        path.join(__dirname, "../client/build/index.html"),
+        function (err) {
+            res.status(500).send(err);
+        }
+    );
+});
 
 router.post("/signup", (req, res) => {
     const { name, userName, email, password } = req.body;
@@ -53,14 +59,12 @@ router.post("/signin", (req, res) => {
         bcrypt.compare(password, savedUser.password)
             .then((match) => { 
                 if (match) {
-                    // return res.status(200).json({ message: "Signed in Successfully" })
                     const token = jwt.sign({_id:savedUser.id}, Jwt_secret)
                     const { _id, name, email, userName } = savedUser
-                    // res.json(token)
-                    // console.log(token)
+
                     res.json({token, user: {_id, name, email, userName}})
-                    // console.log({token, user: {_id, name, email, userName}})
-                } else {
+                }
+                 else {
                     return res.status(422).json({ error: "Invalid Password" })
                 }
             })

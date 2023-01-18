@@ -1,4 +1,5 @@
-require('dotenv').config();
+const dtoenv = require('dotenv');
+dtoenv.config();
 const path = require("path");
 const express = require('express');
 const app = express();
@@ -14,10 +15,11 @@ app.use(require("./routes/auth"))
 app.use(require("./routes/createPost"))
 app.use(require("./routes/user"))
 
-mongoose.connect(mongoUrl, { useNewUrlParser: true });
+// mongoose.connect(mongoUrl, { useNewUrlParser: true })
 const connectDB = async () => {
     try {
-        const conn = mongoose.connect(process.env.MONGO_URI);
+        const conn = await mongoose.connect(process.env.MONGO_URI);
+        // const conn = mongoose.connect(`mongodb+srv://FlyingPanda:lXF42z3EKcoyYpIY@cluster0.ja283iv.mongodb.net/?retryWrites=true&w=majority`);
         console.log(`MongoDB Connected: ${conn.connection.host}`);
     } catch (error) {
         console.log(error);

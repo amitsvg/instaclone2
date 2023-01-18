@@ -1,13 +1,11 @@
 const jwt = require('jsonwebtoken')
-const { Jwt_secret } = require("../keys")
+const Jwt_secret  = process.env.Jwt_secret
 const mongoose = require('mongoose')
 const USER = mongoose.model("USER")
 
 
 
 module.exports = (req, res, next) => {
-    // console.log("Hello middleware");
-    // next();
 
     const { authorization } = req.headers;
     if (!authorization) {
@@ -20,9 +18,6 @@ module.exports = (req, res, next) => {
         }
         const { _id } = payload
         USER.findById(_id).then(userData => {
-            // console.log(userData)
-            // console.log(" good userData")
-            // req.user = userData
             req.user = userData
             next()
         })
