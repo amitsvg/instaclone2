@@ -27,7 +27,7 @@ export default function Home() {
         }
         else {
             // Fetching all posts
-            fetch("http://localhost:5000/allposts", {
+            fetch("/allposts", {
                 headers: {
                     "Authorization": "Bearer " + localStorage.getItem("jwt")
                 }
@@ -42,7 +42,7 @@ export default function Home() {
     }, [navigate])
 
     const likePost = (id) => {
-        fetch("http://localhost:5000/like", {
+        fetch("/like", {
             method: "put",
             headers: {
                 "Content-Type": "application/json",
@@ -66,7 +66,7 @@ export default function Home() {
     }
 
     const unlikePost = (id) => {
-        fetch("http://localhost:5000/unlike", {
+        fetch("/unlike", {
             method: "put",
             headers: {
                 "Content-Type": "application/json",

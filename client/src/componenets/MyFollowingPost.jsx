@@ -27,7 +27,7 @@ export default function MyFollowingPost() {
             navigate("/signin");
         }
         // Fetching all posts
-        fetch("http://localhost:5000/myfollowingpost", {
+        fetch("/myfollowingpost", {
             headers: {
                 "Authorization": "Bearer " + localStorage.getItem("jwt")
             }
@@ -42,7 +42,7 @@ export default function MyFollowingPost() {
     }, [])
 
     const likePost = (id) => {
-        fetch("http://localhost:5000/like", {
+        fetch("/like", {
             method: "put",
             headers: {
                 "Content-Type": "application/json",
@@ -66,7 +66,7 @@ export default function MyFollowingPost() {
     }
 
     const unlikePost = (id) => {
-        fetch("http://localhost:5000/unlike", {
+        fetch("/unlike", {
             method: "put",
             headers: {
                 "Content-Type": "application/json",

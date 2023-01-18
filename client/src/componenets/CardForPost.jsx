@@ -19,7 +19,7 @@ export default function CardForPost({ cardDetails, handleLike, handleUnlike }) {
 
     const toggleComments = () => {
         if (!show) {
-            fetch("http://localhost:5000/allcomments", {
+            fetch("/allcomments", {
                 method: "post",
                 headers: {
                     "Content-Type": "application/json",
@@ -44,7 +44,7 @@ export default function CardForPost({ cardDetails, handleLike, handleUnlike }) {
     }
 
     const makeComment = (comment, id) => {
-        fetch("http://localhost:5000/comment", {
+        fetch("/comment", {
             method: "put",
             headers: {
                 "Content-Type": "application/json",
