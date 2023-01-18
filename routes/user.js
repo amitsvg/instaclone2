@@ -1,0 +1,75 @@
+const express = require('express')
+const router = express.Router();
+const mongoose = require('mongoose');
+const requireLogin = require('../middlewares/requireLogin');
+const POST = mongoose.model("POST")
+
+const USER = mongoose.model("USER")
+
+// to get user profile
+router.get("/user/:userId", (req, res) => {
+    USER.findOne({ _id: req.params.userId })
+        .select("-password")
+        .then(user => {
+            POST.find({ postedBy: req.params.userId })
+                .populate("postedBy", "_id")
+                .exec((err, post) => {
+                    if (err) {
+                        return res.status(422).json(err)
+                    }
+                    res.status(200).json({ user, post })
+                })
+        })
+        .catch(err => {
+            return res.status(404).json({ error: "User not found" })
+        })
+})
+
+// to follow user
+router.put("/follow", requireLogin, (req, res) => {
+    USER.findByIdAndUpdate(req.body.followId, {
+        $push: { followers: req.user._id }
+    }, {
+        new: true
+    }, (err, result) => {
+        if (err) {
+            return res.status(4222).json({ error: err })
+        }
+        USER.findByIdAndUpdate(req.user._id, {
+            $push: { following: req.body.followId }
+        }, {
+            new: true
+        })
+            .then(result => res.json(result))
+            .catch(err => {
+                return res.status(422).json({ error: err })
+            })
+    })
+
+})
+
+// to unfollow
+router.put("/unfollow", requireLogin, (req, res) => {
+    USER.findByIdAndUpdate(req.body.followId, {
+        $pull: { followers: req.user._id }
+    }, {
+        new: true
+    }, (err, result) => {
+        if (err) {
+            return res.status(4222).json({ error: err })
+        }
+        USER.findByIdAndUpdate(req.user._id, {
+            $pull: { following: req.body.followId }
+        }, {
+            new: true
+        })
+            .then(result => res.json(result))
+            .catch(err => {
+                return res.status(422).json({ error: err })
+            })
+    })
+
+})
+
+
+module.exports = router;
