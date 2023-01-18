@@ -1,5 +1,5 @@
 // require('dotenv').config();
-// const path = require("path");
+const path = require("path");
 const express = require('express');
 const app = express();
 const PORT = 5000;
@@ -26,8 +26,12 @@ app.use(require("./routes/auth"))
 // }
 
 // connectDB().then(() => {
+app.use(express.static(path.join("client/build")));
+app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+});
 
-    app.listen(PORT, () => {
-        console.log(`server si running on ${PORT}`);
-    })
+app.listen(PORT, () => {
+    console.log(`server si running on ${PORT}`);
+})
 // })
